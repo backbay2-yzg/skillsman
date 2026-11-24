@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --accent: #0078d4;
+  --accent-hover: #106ebe;
+  --accent-soft: rgba(0, 120, 212, 0.14);
+  --accent-border: rgba(0, 120, 212, 0.36);
+
+  --mica-fallback: #f3f3f3;
+  --mica-shell: rgba(243, 243, 243, 0.76);
+  --mica-canvas: rgba(255, 255, 255, 0.62);
+  --card-bg: rgba(255, 255, 255, 0.78);
+  --card-hover: rgba(255, 255, 255, 0.90);
+  --card-subtle: rgba(0, 0, 0, 0.032);
+  --card-border: rgba(0, 0, 0, 0.075);
+  --divider: rgba(0, 0, 0, 0.07);
+  --input-bg: rgba(255, 255, 255, 0.78);
+  --input-border: rgba(0, 0, 0, 0.14);
+  --drawer-bg: rgba(249, 249, 249, 0.96);
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #5c5c5c;
+  --text-muted: #8a8a8a;
+
+  --success: #0f7b0f;
+  --success-soft: rgba(15, 123, 15, 0.12);
+  --warning: #9d5d00;
+  --warning-soft: rgba(157, 93, 0, 0.12);
+  --danger: #c42b1c;
+  --danger-soft: rgba(196, 43, 28, 0.12);
+}
+
+html.dark {
+  color-scheme: dark;
+  --accent: #60cdff;
+  --accent-hover: #4cc2ff;
+  --accent-soft: rgba(96, 205, 255, 0.14);
+  --accent-border: rgba(96, 205, 255, 0.34);
+
+  --mica-fallback: #202020;
+  --mica-shell: rgba(28, 28, 28, 0.76);
+  --mica-canvas: rgba(38, 38, 38, 0.64);
+  --card-bg: rgba(48, 48, 48, 0.72);
+  --card-hover: rgba(56, 56, 56, 0.80);
+  --card-subtle: rgba(255, 255, 255, 0.042);
+  --card-border: rgba(255, 255, 255, 0.075);
+  --divider: rgba(255, 255, 255, 0.075);
+  --input-bg: rgba(36, 36, 36, 0.76);
+  --input-border: rgba(255, 255, 255, 0.12);
+  --drawer-bg: rgba(34, 34, 34, 0.96);
+
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #8f8f8f;
+
+  --success: #6ccb5f;
+  --success-soft: rgba(108, 203, 95, 0.14);
+  --warning: #fce100;
+  --warning-soft: rgba(252, 225, 0, 0.13);
+  --danger: #ff99a4;
+  --danger-soft: rgba(255, 153, 164, 0.14);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", "Microsoft YaHei UI", system-ui, -apple-system, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.45;
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wails-drag {
+  --wails-draggable: drag;
+}
+
+.wails-no-drag {
+  --wails-draggable: no-drag;
+}
+
+.fluent-shell {
+  background: var(--mica-shell);
+}
+
+.fluent-canvas {
+  background: var(--mica-canvas);
+  border-top: 1px solid var(--divider);
+  border-left: 1px solid var(--divider);
+  border-top-left-radius: 10px;
+}
+
+.fluent-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+
+.fluent-card-interactive:hover {
+  background: var(--card-hover);
+}
+
+.fluent-input {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-bottom: 2px solid var(--input-border);
+  color: var(--text-primary);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 140ms ease, background-color 140ms ease;
+}
+
+.fluent-input:focus {
+  border-color: var(--input-border);
+  border-bottom-color: var(--accent);
+}
+
+.fluent-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  transition: background-color 120ms ease, opacity 120ms ease, border-color 120ms ease;
+}
+
+.fluent-btn:hover:not(:disabled) {
+  background: var(--card-hover);
+}
+
+.fluent-btn:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
+}
+
+.fluent-btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+html.dark .fluent-btn-primary {
+  color: #0b1926;
+  font-weight: 600;
+}
+
+.fluent-btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.fluent-btn-subtle {
+  background: transparent;
+  border-color: transparent;
+}
+
+.fluent-btn-subtle:hover:not(:disabled) {
+  background: var(--card-subtle);
+}
+
+.fluent-scroll {
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.fluent-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.fluent-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.fluent-scroll::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.28);
+  border-radius: 999px;
+}
+
+.fluent-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.48);
+}
+
+/* Markdown preview inside SkillDrawer */
+.md-body {
+  user-select: text;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+.md-body h1, .md-body h2, .md-body h3 {
+  font-weight: 600;
+  margin-top: 1.1em;
+  margin-bottom: 0.45em;
+  line-height: 1.3;
+}
+.md-body h1 { font-size: 1.3em; }
+.md-body h2 { font-size: 1.12em; border-bottom: 1px solid var(--divider); padding-bottom: 4px; }
+.md-body h3 { font-size: 1.02em; }
+.md-body p { margin: 0.55em 0; color: var(--text-secondary); }
+.md-body ul, .md-body ol { padding-left: 1.35em; margin: 0.5em 0; color: var(--text-secondary); }
+.md-body li { margin: 0.2em 0; }
+.md-body code {
+  font-family: "Cascadia Code", "Consolas", monospace;
+  font-size: 12px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--card-subtle);
+  border: 1px solid var(--card-border);
+}
+.md-body pre {
+  background: var(--card-subtle);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  overflow-x: auto;
+  margin: 0.7em 0;
+}
+.md-body pre code {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+.md-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+  margin: 0.6em 0;
+  color: var(--text-muted);
+}

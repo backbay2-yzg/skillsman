@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=SkillsMan
+Comment=Lightweight Windows Skills Manager
+# The Exec line includes %u to pass the URL to the application
+Exec=/usr/local/bin/skillsman.exe %u
+Terminal=false
+Type=Application
+Icon=skillsman.exe
+Categories=Utility;
+StartupWMClass=skillsman.exe
+
+ 
